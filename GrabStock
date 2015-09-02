@@ -1,0 +1,52 @@
+package observerPattern;
+
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class GrabStocks {
+	
+	public static void main(String[] args){
+		
+//		StockGrabber stockGrabber = new StockGrabber();
+//		
+//		StockObserver stockObserver = new StockObserver(stockGrabber);
+//		
+//		stockGrabber.setIBMPrice(197.00);
+//		stockGrabber.setAAPLPrice(677.60);
+//		stockGrabber.setGOOGPrice(676.40);
+//		
+//		Runnable getIBM = new GetTheStock(stockGrabber, 2, "IBM", 197.00);
+//		
+//		Runnable getAAPL = new GetTheStock(stockGrabber, 2, "AAPL", 677.60);
+//		
+//		Runnable getGOOV = new GetTheStock(stockGrabber, 2, "GOOG", 676.40);
+//		
+//		new Thread(getIBM).start();
+//		
+//		new Thread(getAAPL).start();
+//		
+//		new Thread(getGOOV).start();
+		
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter Company eg. SHOP, IBM: ");
+		String com = input.next();
+		
+		System.out.println("Please enter Year eg. 2015: ");
+		int year = input.nextInt();
+		
+		System.out.println("Please enter Month (0-11): ");
+		int month = input.nextInt();
+		
+		System.out.println("Please enter Day (1-30): ");
+		int day = input.nextInt();
+		
+		GregorianCalendar calStart = new GregorianCalendar(year, month, day);
+		GregorianCalendar calEnd = new GregorianCalendar(year, month, day);
+		
+		StockDownloader test = new StockDownloader(com, calStart, calEnd);
+		
+		System.out.println(test.getOpens());
+		
+	}
+
+}
