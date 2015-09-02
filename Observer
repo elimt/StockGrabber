@@ -1,0 +1,5 @@
+
+public interface Observer {
+	public void update(double idmPrice, double aaplPrice, double googPrice);
+
+}
