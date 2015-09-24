@@ -1,4 +1,11 @@
 
+/**
+ * 	This class is an interface which has parameters for set company prices if the user chooses to run the
+ *	porgram as a multi-thread instead of a single thread
+ * @author    Elim Yao Tsiagbey
+ * @version   1.0.0 9/16/2015
+ */
+
 public interface Observer {
 	public void update(double idmPrice, double aaplPrice, double googPrice);
 
