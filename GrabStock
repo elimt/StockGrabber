@@ -3,29 +3,16 @@ package observerPattern;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
 
+/**
+ * 	This class mainly runs the program by takeing in input from the user into the respective fields (Company and Date) 
+ *	and prints out the current stock market prices for the selected company
+ * @author    Elim Yao Tsiagbey
+ * @version   1.0.0 9/16/2015
+ */
 public class GrabStocks {
 	
 	public static void main(String[] args){
 		
-//		StockGrabber stockGrabber = new StockGrabber();
-//		
-//		StockObserver stockObserver = new StockObserver(stockGrabber);
-//		
-//		stockGrabber.setIBMPrice(197.00);
-//		stockGrabber.setAAPLPrice(677.60);
-//		stockGrabber.setGOOGPrice(676.40);
-//		
-//		Runnable getIBM = new GetTheStock(stockGrabber, 2, "IBM", 197.00);
-//		
-//		Runnable getAAPL = new GetTheStock(stockGrabber, 2, "AAPL", 677.60);
-//		
-//		Runnable getGOOV = new GetTheStock(stockGrabber, 2, "GOOG", 676.40);
-//		
-//		new Thread(getIBM).start();
-//		
-//		new Thread(getAAPL).start();
-//		
-//		new Thread(getGOOV).start();
 		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter Company eg. SHOP, IBM: ");
