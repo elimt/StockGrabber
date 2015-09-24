@@ -2,6 +2,13 @@ package observerPattern;
 
 import java.util.ArrayList;
 
+/** This class implements the Subject Interface which also serves as a supplemtary class to add a secondary functionality
+ * to the program by storing specific comapny stock market prices in an ArrayList. This functionality also enables the user
+ * to delete specifc stock market prices by company sybmol from the ArrayList
+ * @author    Elim Yao Tsiagbey
+ * @version   1.0.0 9/16/2015
+ */
+		
 public class StockGrabber implements Subject {
 
 	private ArrayList<Observer> observers;
@@ -20,7 +27,8 @@ public class StockGrabber implements Subject {
 		observers.add(newObserver);
 		
 	}
-
+	
+	//This method enables to user to remove stored stock prices according to company symbol from the ArrayList
 	@Override
 	public void unregister(Observer deleteObserver) {
 		
@@ -31,7 +39,9 @@ public class StockGrabber implements Subject {
 		observers.remove(observerIndex);
 		
 	}
-
+	
+	//This method notifies the user of changes in the stock market prices if the program is made to run in
+	//a multi-thread instead of a single thread 
 	@Override
 	public void notifyObserver() {
 		for(Observer observer : observers){
