@@ -1,7 +1,12 @@
 package observerPattern;
 
 import java.text.DecimalFormat;;
-
+/**
+ * 	This class is a supplementary class which enables the program to run as a thread (Running more than one thread at once)
+ *	for a specified amount of time
+ * @author    Elim Yao Tsiagbey
+ * @version   1.0.0 9/16/2015
+ */
 public class GetTheStock implements Runnable {
 	
 	private int startTime;
