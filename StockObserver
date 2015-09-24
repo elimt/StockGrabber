@@ -1,5 +1,10 @@
 package observerPattern;
 
+ /**This class implements the Observer Intereface which enables the user to add new company sybmols through the 
+ * Subject Interface to the array
+ * @author    Elim Yao Tsiagbey
+ * @version   1.0.0 9/16/2015
+ */
 public class StockObserver implements Observer {
 	
 	private double ibmPrice;
@@ -12,6 +17,7 @@ public class StockObserver implements Observer {
 	
 	private Subject stockGrabber;
 	
+	//This method adds new stock market prices to be stored and gives each an ID tracker
 	public StockObserver(Subject stockGrabber) {
 		
 		this.stockGrabber = stockGrabber;
@@ -30,11 +36,11 @@ public class StockObserver implements Observer {
 		this.aaplPrice = aaplPrice;
 		this.googPrice = googPrice;
 		
-		printPrice();
 		
 		
 	}
-
+	
+	//This method prints out the observerID with the stock market prices
 	public void printPrice() {
 		System.out.println(observerID + "\nIBM: " + ibmPrice + "\nAAPL: " + aaplPrice + "\nGOOG: " + googPrice);
 		
