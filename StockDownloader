@@ -14,6 +14,14 @@ import java.util.Scanner;
 
 import javax.swing.JTable;
 
+/**
+ * 	This class is the major class of the code. It connects to the Yahoo Api and downloads the stocks prices and
+ *	other fields. It then takes out each field, passes it into the right data type and stores the stock in the 
+ * 	getOpen() method
+ * @author    Elim Yao Tsiagbey
+ * @version   1.0.0 9/16/2015
+ */
+
 public class StockDownloader {
 
 	public static final int DATE = 0;
@@ -31,7 +39,12 @@ public class StockDownloader {
 	private ArrayList<Double> closes;
 	private ArrayList<Integer> volumes;
 	private ArrayList<Double> adjcloses;
-
+	
+	/**
+	* The constructor takes in the fields which were entered form the user and uses the fields to query
+	* Yahoo Finance for the stokc market prices of the company(symbol) and period or time(start and end) to list 
+	* the stock market prices
+	*/
 	public StockDownloader(String symbol, GregorianCalendar start, GregorianCalendar end){
 
 
@@ -43,9 +56,8 @@ public class StockDownloader {
 		volumes = new ArrayList<Integer>();
 		adjcloses = new ArrayList<Double>();
 
-
-		//http://real-chart.finance.yahoo.com/table.csv?s=IBM&d=6&e=17&f=2015&g=d&a=0&b=2&c=1962&ignore=.csv
-
+		//Passing the fields into specific sections of the url which would be used to 
+		//download the stock market prices as spreadsheet
 		String url = "http://real-chart.finance.yahoo.com/table.csv?s="+symbol+
 				"&d="+start.get(Calendar.MONTH)+
 				"&e="+start.get(Calendar.DAY_OF_MONTH)+
@@ -55,7 +67,7 @@ public class StockDownloader {
 				"&c="+end.get(Calendar.YEAR)+"&ignore=.csv";
 
 		try
-		{
+		{	//The url connects to Yahoo Fiance and downloads the spreadsheet
 			URL yahooFinance = new URL(url);
 			URLConnection data =  yahooFinance.openConnection();
 			Scanner input = new Scanner(data.getInputStream());
@@ -66,16 +78,9 @@ public class StockDownloader {
 				
 				
 				while(input.hasNextLine()){
-							
+					//Information from the spreadsheet is extracted and sent into its right field		
 					String [] line = input.nextLine().split(",");
-					
-					
-//					DateFormat df = new SimpleDateFormat("MM-dd-yyyy");
-//					Date date = df.parse(line[0]);
-//					GregorianCalendar cal = (GregorianCalendar) GregorianCalendar.getInstance();
-//					cal.setTime(date);
-//					
-//					GregorianCalendar datess = cal;
+				
 					double openss = Double.parseDouble(line[1]);
 					double highss = Double.parseDouble(line[2]);
 					double lowss = Double.parseDouble(line[3]);
@@ -84,7 +89,6 @@ public class StockDownloader {
 					double adjclosess = Double.parseDouble(line[6]);
 					
 					
-					//opens.add(openss);
 					
 					System.out.println( openss + " " + highss + " " + lowss + " " + closess + " " + volumess + " " + adjclosess);
 				
@@ -109,12 +113,9 @@ public class StockDownloader {
 
 
 	}
-
-	public ArrayList<GregorianCalendar> getDates(){
-
-		return dates;
-	}
-		
+	
+	//The main field, the Stock Market Price is stored as 'opens. This method enables the user to access the
+	// stock market price without being able to change the field (Accessor)
 	public ArrayList<Double> getOpens(){
 
 		return opens;
