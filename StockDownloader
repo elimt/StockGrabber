@@ -22,7 +22,8 @@ import javax.swing.JTable;
  * @version   1.0.0 9/16/2015
  */
 
-public class StockDownloader {
+public class StockDownloader 
+{
 
 	public static final int DATE = 0;
 	public static final int OPEN = 0;
@@ -45,7 +46,8 @@ public class StockDownloader {
 	* Yahoo Finance for the stokc market prices of the company(symbol) and period or time(start and end) to list 
 	* the stock market prices
 	*/
-	public StockDownloader(String symbol, GregorianCalendar start, GregorianCalendar end){
+	public StockDownloader(String symbol, GregorianCalendar start, GregorianCalendar end)
+	{
 
 
 		dates = new ArrayList<GregorianCalendar>();
@@ -105,10 +107,10 @@ public class StockDownloader {
 
 
 		}
-		catch(Exception e){
-			System.err.println(e);
-
-		}
+	catch(Exception e)
+	{
+	System.err.println(e);
+	}
 
 
 
@@ -116,7 +118,9 @@ public class StockDownloader {
 	
 	//The main field, the Stock Market Price is stored as 'opens. This method enables the user to access the
 	// stock market price without being able to change the field (Accessor)
-	public ArrayList<Double> getOpens(){
+	@return Stock Market Price
+	public ArrayList<Double> getOpens()
+	{
 
 		return opens;
 	}
