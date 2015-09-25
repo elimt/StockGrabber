@@ -24,7 +24,6 @@ import javax.swing.JTable;
 
 public class StockDownloader 
 {
-
 	public static final int DATE = 0;
 	public static final int OPEN = 0;
 	public static final int HIGH = 0;
@@ -32,7 +31,6 @@ public class StockDownloader
 	public static final int CLOSE = 0;
 	public static final int VOLUME = 0;
 	public static final int ADJCLOSE = 0;
-
 	private ArrayList<GregorianCalendar> dates;
 	private ArrayList<Double> opens;
 	private ArrayList<Double> highs;
@@ -48,8 +46,6 @@ public class StockDownloader
 	*/
 	public StockDownloader(String symbol, GregorianCalendar start, GregorianCalendar end)
 	{
-
-
 		dates = new ArrayList<GregorianCalendar>();
 		opens = new ArrayList<Double>();
 		highs = new ArrayList<Double>();
@@ -57,7 +53,6 @@ public class StockDownloader
 		closes = new ArrayList<Double>();
 		volumes = new ArrayList<Integer>();
 		adjcloses = new ArrayList<Double>();
-
 		//Passing the fields into specific sections of the url which would be used to 
 		//download the stock market prices as spreadsheet
 		String url = "http://real-chart.finance.yahoo.com/table.csv?s="+symbol+
@@ -67,7 +62,6 @@ public class StockDownloader
 				"&g=d&a="+end.get(Calendar.MONTH)+
 				"&b="+end.get(Calendar.DAY_OF_MONTH)+
 				"&c="+end.get(Calendar.YEAR)+"&ignore=.csv";
-
 		try
 		{	//The url connects to Yahoo Fiance and downloads the spreadsheet
 			URL yahooFinance = new URL(url);
@@ -75,45 +69,24 @@ public class StockDownloader
 			Scanner input = new Scanner(data.getInputStream());
 			if(input.hasNext()){
 				input.nextLine();
-				
 				System.out.println("Opens " + "Highs " + "Lows " + "Closes " + "Volumes " + "Adj Close ");
-				
-				
 				while(input.hasNextLine()){
 					//Information from the spreadsheet is extracted and sent into its right field		
 					String [] line = input.nextLine().split(",");
-				
 					double openss = Double.parseDouble(line[1]);
 					double highss = Double.parseDouble(line[2]);
 					double lowss = Double.parseDouble(line[3]);
 					double closess = Double.parseDouble(line[4]);
 					int volumess =  Integer.parseInt(line[5]);
 					double adjclosess = Double.parseDouble(line[6]);
-					
-					
-					
 					System.out.println( openss + " " + highss + " " + lowss + " " + closess + " " + volumess + " " + adjclosess);
-				
-					
-					
-					
-					
-				
-
 				}
-
-
 			}
-
-
 		}
-	catch(Exception e)
-	{
-	System.err.println(e);
-	}
-
-
-
+		catch(Exception e)
+		{
+		System.err.println(e);
+		}
 	}
 	
 	//The main field, the Stock Market Price is stored as 'opens. This method enables the user to access the
@@ -121,10 +94,6 @@ public class StockDownloader
 	@return Stock Market Price
 	public ArrayList<Double> getOpens()
 	{
-
 		return opens;
 	}
-
-
-
 }
