@@ -7,14 +7,16 @@ import java.text.DecimalFormat;;
  * @author    Elim Yao Tsiagbey
  * @version   1.0.0 9/16/2015
  */
-public class GetTheStock implements Runnable {
+public class GetTheStock implements Runnable 
+{
 	
 	private int startTime;
 	private String stock;
 	private double price;
 	private Subject stockGrabber;
 	
-	public GetTheStock(Subject stockGrabber, int newStartTime,String newStock, double newPrice){
+	public GetTheStock(Subject stockGrabber, int newStartTime,String newStock, double newPrice)
+	{
 		this.stockGrabber = stockGrabber;
 		this.startTime = newStartTime;
 		this.stock = newStock;
