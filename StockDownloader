@@ -67,10 +67,12 @@ public class StockDownloader
 			URL yahooFinance = new URL(url);
 			URLConnection data =  yahooFinance.openConnection();
 			Scanner input = new Scanner(data.getInputStream());
-			if(input.hasNext()){
+			if(input.hasNext())
+			{
 				input.nextLine();
 				System.out.println("Opens " + "Highs " + "Lows " + "Closes " + "Volumes " + "Adj Close ");
-				while(input.hasNextLine()){
+				while(input.hasNextLine())
+				{
 					//Information from the spreadsheet is extracted and sent into its right field		
 					String [] line = input.nextLine().split(",");
 					double openss = Double.parseDouble(line[1]);
