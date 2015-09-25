@@ -6,7 +6,7 @@
  * @version   1.0.0 9/16/2015
  */
 
-public interface Observer {
+public interface Observer 
+{
 	public void update(double idmPrice, double aaplPrice, double googPrice);
-
 }
