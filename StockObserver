@@ -7,7 +7,6 @@ package observerPattern;
  */
 public class StockObserver implements Observer 
 {
-	
 	private double ibmPrice;
 	private double aaplPrice;
 	private double googPrice;
@@ -18,13 +17,9 @@ public class StockObserver implements Observer
 	//This method adds new stock market prices to be stored and gives each an ID tracker
 	public StockObserver(Subject stockGrabber) 
 	{
-		
 		this.stockGrabber = stockGrabber;
-		
 		this.observerID = ++observerIDTracker; 
-		
 		System.out.println("New Observer " + observerID);
-		
 		stockGrabber.register(this);
 	}
 	
@@ -34,7 +29,6 @@ public class StockObserver implements Observer
 		this.ibmPrice = ibmPrice;
 		this.aaplPrice = aaplPrice;
 		this.googPrice = googPrice;
-	
 	}
 	
 	//This method prints out the observerID with the stock market prices
@@ -42,5 +36,4 @@ public class StockObserver implements Observer
 	{
 		System.out.println(observerID + "\nIBM: " + ibmPrice + "\nAAPL: " + aaplPrice + "\nGOOG: " + googPrice);
 	}
-
 }
