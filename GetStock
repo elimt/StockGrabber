@@ -9,7 +9,6 @@ import java.text.DecimalFormat;;
  */
 public class GetTheStock implements Runnable 
 {
-	
 	private int startTime;
 	private String stock;
 	private double price;
@@ -28,13 +27,10 @@ public class GetTheStock implements Runnable
 	{
 		for(int i=1; i <= 20; i++)
 		{
-			
 			try
 			{
 				Thread.sleep(2000);
-				
 			}
-			
 			catch(InterruptedException e){}
 			double randNum = (Math.random() * (0.06)) - 0.03;
 			DecimalFormat df = new DecimalFormat("#.##");
@@ -47,7 +43,5 @@ public class GetTheStock implements Runnable
 			System.out.println(stock + " " + df.format((price) + randNum) + " " + df.format(randNum));
 			System.out.println();
 		}
-		
 	}
-
 }
