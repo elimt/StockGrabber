@@ -9,28 +9,31 @@ import java.util.ArrayList;
  * @version   1.0.0 9/16/2015
  */
 		
-public class StockGrabber implements Subject {
+public class StockGrabber implements Subject 
+{
 
 	private ArrayList<Observer> observers;
 	private double ibmPrice;
 	private double aaplPrice;
 	private double googPrice;
 	
-	public StockGrabber(){
+	public StockGrabber()
+	{
 		observers = new ArrayList<Observer>();
-		
 	}
 	
+	@param newObserver gives the method the new company to store
 	@Override
-	public void register(Observer newObserver) {
-		
+	public void register(Observer newObserver) 
+	{
 		observers.add(newObserver);
-		
 	}
 	
 	//This method enables to user to remove stored stock prices according to company symbol from the ArrayList
+	@param deleteObserver indicates which company stock market details is to be deleted
 	@Override
-	public void unregister(Observer deleteObserver) {
+	public void unregister(Observer deleteObserver) 
+	{
 		
 		int observerIndex = observers.indexOf(deleteObserver);
 		
@@ -43,23 +46,27 @@ public class StockGrabber implements Subject {
 	//This method notifies the user of changes in the stock market prices if the program is made to run in
 	//a multi-thread instead of a single thread 
 	@Override
-	public void notifyObserver() {
+	public void notifyObserver() 
+	{
 		for(Observer observer : observers){
 			observer.update(ibmPrice,aaplPrice,googPrice);
 		}
 	}
 	
-	public void setIBMPrice(double ibmPrice){
+	public void setIBMPrice(double ibmPrice)
+	{
 		this.ibmPrice = ibmPrice;
 		notifyObserver();
 	}
 	
-	public void setAAPLPrice(double aaplPrice){
+	public void setAAPLPrice(double aaplPrice)
+	{
 		this.aaplPrice = aaplPrice;
 		notifyObserver();
 	}
 	
-	public void setGOOGPrice(double googPrice){
+	public void setGOOGPrice(double googPrice)
+	{
 		this.googPrice = googPrice;
 		notifyObserver();
 	}
