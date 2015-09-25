@@ -11,11 +11,8 @@ import java.util.Scanner;
  */
 public class GrabStocks 
 {
-	
 	public static void main(String[] args)
 	{
-		
-		
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter Company eg. SHOP, IBM: ");
 		String com = input.next();
@@ -33,9 +30,6 @@ public class GrabStocks
 		GregorianCalendar calEnd = new GregorianCalendar(year, month, day);
 		
 		StockDownloader test = new StockDownloader(com, calStart, calEnd);
-		
 		System.out.println(test.getOpens());
-		
 	}
-
 }
