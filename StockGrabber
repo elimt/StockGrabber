@@ -8,10 +8,8 @@ import java.util.ArrayList;
  * @author    Elim Yao Tsiagbey
  * @version   1.0.0 9/16/2015
  */
-		
 public class StockGrabber implements Subject 
 {
-
 	private ArrayList<Observer> observers;
 	private double ibmPrice;
 	private double aaplPrice;
@@ -34,13 +32,9 @@ public class StockGrabber implements Subject
 	@Override
 	public void unregister(Observer deleteObserver) 
 	{
-		
 		int observerIndex = observers.indexOf(deleteObserver);
-		
 		System.out.println("Observer " + (observerIndex+1) + " deleted");
-		
 		observers.remove(observerIndex);
-		
 	}
 	
 	//This method notifies the user of changes in the stock market prices if the program is made to run in
@@ -49,7 +43,7 @@ public class StockGrabber implements Subject
 	public void notifyObserver() 
 	{
 		for(Observer observer : observers){
-			observer.update(ibmPrice,aaplPrice,googPrice);
+		observer.update(ibmPrice,aaplPrice,googPrice);
 		}
 	}
 	
@@ -70,5 +64,4 @@ public class StockGrabber implements Subject
 		this.googPrice = googPrice;
 		notifyObserver();
 	}
-
 }
