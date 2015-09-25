@@ -5,8 +5,8 @@ package observerPattern;
   * @author   Elim Yao Tsiagbey
  * @version   1.0.0 9/16/2015
  */
-public interface Subject {
-	
+public interface Subject 
+{
 	public void register(Observer newObserver);
 	public void unregister(Observer deleteObserver);
 	public void notifyObserver();
